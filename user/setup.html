@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>SecondHome - Setup</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#13a4ec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101c22",
+                    },
+                    fontFamily: {
+                        display: ["Manrope"],
+                        cursive: ["Dancing Script"],
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        lg: "0.5rem",
+                        xl: "0.75rem",
+                        full: "9999px",
+                    },
+                },
+            },
+        };
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
+        }
+    </style>
+    <style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+    <style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+
+<body
+    class="bg-white dark:bg-gray-900 font-display text-gray-800 dark:text-gray-200 flex flex-col min-h-screen">
+    <header class="absolute top-0 left-0 w-full p-6 z-10">
+        <h1 class="text-4xl font-cursive font-bold text-gray-900 dark:text-white">
+            SecondHome
+        </h1>
+    </header>
+    <main class="flex-grow flex flex-col justify-between">
+        <div class="relative w-full h-[45vh] overflow-hidden">
+            <div class="absolute inset-0 flex transition-transform duration-500 ease-in-out" id="slideshow">
+                <img alt="Minimalist PG space 1" class="w-full h-full object-cover flex-shrink-0"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuC52ESWaMjqUVCUg8lfT0n_nRGN72qPlvAlrDfdo12e-rUpd25lrdQlxYFcRttHSBUdPEF41Wqr0MV_EfOYAlN_oxjMJHjqTcX0F_EgmkiHFu7U07VPMiscBEaH-nWthN0DVmerXuz0H9mxTqJU5dN9uncOV2L3DSkNDcdIVS5ODCGySQC5xZTE65cS3NPgYU1nEOwiOUIehVd8JAZctq_e_60yTVpxyuiT8A0vA4yiAxpuMAfNzzZWFWQfZiqsHvd3QHbLOwTmV8Q7" />
+                <img alt="Minimalist PG space 2" class="w-full h-full object-cover flex-shrink-0"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuAH38J2nZWK9K-pLwSNjpUf9t-dpWdzvYox6-Ze2_ku14-OSXwkO4ivvhM-tkLEOv8Q6C-dMCBMvdXvw_pdanoy-CqeJrRocZ1nVBN7YQouXbWE8eOMvFXETNK2eCy08OG5lEJsDaUCEwOplDFay6A3jfSJOtHYzrG6HnOkaBpZd8k0YNkihY81v8TwGcx2Uxdg08UmYlPsspZI8NtaPI7lbpENRNrHiomCi61eJrXjfXqn9dNhlIaH6F0gfLBZFzUjrDpOUVPJHw5V" />
+                <img alt="Minimalist PG space 3" class="w-full h-full object-cover flex-shrink-0"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuAjgs8IOyzVY1PPwC1I20C1AuoJyomnuT0GgXTzfvmpGP0j9TfZXGrJvtpMxQ7o1Wi3e8Tu9TSdrzhb_lVav9aXycIdCDgOT3PvX_vkXKZppqfxOZuI7xnzd37XcaQP38wT1a_rq5ALWZrq1NSIMUmstgUVBPcYmjoDEv4gnGZCBcXn94J5o3aaVZfyk0L7aZSw7AQ67DIaKVpXZcGY2iaP6nvDyVDy4_8txw4It259aLlFt6F5oEGmJLTeP4lL39OJMYmHAHhboayp" />
+            </div>
+            <div class="absolute bottom-4 left-0 right-0 flex justify-center space-x-2">
+                <span class="w-2 h-2 bg-white rounded-full opacity-50 slideshow-dot active" data-slide="0"></span>
+                <span class="w-2 h-2 bg-white rounded-full opacity-50 slideshow-dot" data-slide="1"></span>
+                <span class="w-2 h-2 bg-white rounded-full opacity-50 slideshow-dot" data-slide="2"></span>
+            </div>
+        </div>
+        <div class="px-6 py-8 text-center">
+            <h2 class="text-2xl font-bold text-gray-800 dark:text-gray-200 mb-2">Arya Boy's PG</h2>
+            <p class="text-lg text-gray-600 dark:text-gray-400">
+                Finalize your account setup. <br> Just a few more steps to your new home.
+            </p>
+        </div>
+        <div class="px-6 py-6 w-full">
+            <div class="flex flex-col gap-3">
+                <div
+                    class="relative bg-white/70 dark:bg-gray-800/70 backdrop-blur-md rounded-xl overflow-hidden focus-within:bg-white dark:focus-within:bg-gray-800 transition duration-300">
+                    <span
+                        class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-gray-500 dark:text-gray-400">
+                        phone_iphone
+                    </span>
+                    <input
+                        class="form-input w-full pl-12 pr-4 py-4 bg-transparent border-none focus:ring-0 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400"
+                        placeholder="Mobile Number" type="tel" value="+91 98765 43210" readonly />
+                </div>
+                <div
+                    class="relative bg-white/70 dark:bg-gray-800/70 backdrop-blur-md rounded-xl overflow-hidden focus-within:bg-white dark:focus-within:bg-gray-800 transition duration-300">
+                    <span
+                        class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-gray-500 dark:text-gray-400">
+                        lock
+                    </span>
+                    <input
+                        class="form-input w-full pl-12 pr-4 py-4 bg-transparent border-none focus:ring-0 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400"
+                        placeholder="Create Password" type="password" />
+                </div>
+                <div
+                    class="relative bg-white/70 dark:bg-gray-800/70 backdrop-blur-md rounded-xl overflow-hidden focus-within:bg-white dark:focus-within:bg-gray-800 transition duration-300">
+                    <span
+                        class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-gray-500 dark:text-gray-400">
+                        lock
+                    </span>
+                    <input
+                        class="form-input w-full pl-12 pr-4 py-4 bg-transparent border-none focus:ring-0 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400"
+                        placeholder="Confirm Password" type="password" />
+                </div>
+                <button
+                    class="w-full bg-primary text-white font-bold py-4 px-6 rounded-xl shadow-lg shadow-primary/30 hover:bg-opacity-90 transition duration-300">
+                    Login
+                </button>
+            </div>
+        </div>
+    </main>
+    <script>
+        let currentSlide = 0;
+        const slides = document.getElementById("slideshow").children;
+        const dots = document.querySelectorAll(".slideshow-dot");
+        function showSlide(index) {
+            if (index >= slides.length) {
+                currentSlide = 0;
+            } else if (index < 0) {
+                currentSlide = slides.length - 1;
+            } else {
+                currentSlide = index;
+            }
+            document.getElementById("slideshow").style.transform = `translateX(-${currentSlide * 100
+                }%)`;
+            dots.forEach((dot, i) => {
+                if (i === currentSlide) {
+                    dot.classList.add("opacity-100");
+                    dot.classList.remove("opacity-50");
+                } else {
+                    dot.classList.remove("opacity-100");
+                    dot.classList.add("opacity-50");
+                }
+            });
+        }
+        dots.forEach((dot) => {
+            dot.addEventListener("click", () => {
+                showSlide(parseInt(dot.dataset.slide));
+            });
+        });
+        setInterval(() => {
+            showSlide(currentSlide + 1);
+        }, 5000); // Change image every 5 seconds
+        showSlide(0); // Initialize first slide
+    </script>
+
+</body>
+
+</html>
