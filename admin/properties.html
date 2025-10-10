@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Properties - PG Management</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&amp;display=swap"
+        rel="stylesheet" />
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1193d4",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#000000",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope"],
+                        "cursive": ["Dancing Script"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-800 dark:text-slate-200">
+    <div class="relative flex min-h-screen w-full flex-col justify-between">
+        <div class="flex-grow">
+            <header
+                class="sticky top-0 z-10 flex items-center justify-between border-b border-slate-200 dark:border-slate-800 bg-background-light/80 dark:bg-background-dark/80 p-4 backdrop-blur-sm">
+                <div class="w-12"></div>
+                <h1 class="text-3xl font-cursive font-bold text-slate-900 dark:text-white text-center flex-1">Properties</h1>
+                <button id="darkModeToggle"
+                    class="flex h-12 w-12 cursor-pointer items-center justify-center rounded-full text-slate-600 dark:text-slate-300 hover:bg-primary/10 dark:hover:bg-primary/20 focus:outline-none">
+                    <svg class="h-6 w-6 dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+                    </svg>
+                    <svg class="h-6 w-6 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M12 3v1m0 16v1m8.66-8.66l-.707.707M4.04 4.04l-.707.707M21 12h-1M4 12H3m15.96-4.04l-.707-.707M6.75 17.25l-.707-.707M12 6a6 6 0 100 12 6 6 0 000-12z">
+                        </path>
+                    </svg>
+                </button>
+            </header>
+            <main class="p-4 space-y-6">
+                <div class="relative">
+                    <input type="search" placeholder="Search properties..." class="w-full h-12 px-4 pl-10 rounded-lg bg-slate-100 dark:bg-slate-800/50 border-transparent focus:ring-2 focus:ring-primary focus:border-transparent" />
+                    <svg class="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 256 256" fill="currentColor"><path d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z"></path></svg>
+                </div>
+                <section>
+                    <div id="property-list" class="space-y-2">
+                        <div class="property-item cursor-pointer flex items-center gap-4 rounded-lg p-3 hover:bg-slate-100 dark:hover:bg-slate-800/50" 
+                            data-name="Property A" 
+                            data-address="123 Main St, Anytown" 
+                            data-image="https://lh3.googleusercontent.com/aida-public/AB6AXuBxRGvQxbXHfcJJjgM9c8p6fF1G2sltpT0YQaT7rsEuljtBMZ4bgS86TpD-zlfwYKivL8S8HtiibULzAIKocPlQKND5CeQUwa8icbS7QDgRRpIm2zR_vF02LFc_W1lTf_fCuGGmhe8nkT2cG3Ip1vNmiD5fyI9s5E8nDmM7tBayEsJ9-lWuvgAfef8MASSDond3fYdud4K4lXLZfRKqpKT4mYYIN7SU0vrVax8EFoTOCnLpL3IErTn89vvWwgxe3AugMFR13JNrIas"
+                            data-occupancy="80%">
+                            <div class="bg-center bg-no-repeat aspect-square bg-cover rounded-lg size-14"
+                                style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBxRGvQxbXHfcJJjgM9c8p6fF1G2sltpT0YQaT7rsEuljtBMZ4bgS86TpD-zlfwYKivL8S8HtiibULzAIKocPlQKND5CeQUwa8icbS7QDgRRpIm2zR_vF02LFc_W1lTf_fCuGGmhe8nkT2cG3Ip1vNmiD5fyI9s5E8nDmM7tBayEsJ9-lWuvgAfef8MASSDond3fYdud4K4lXLZfRKqpKT4mYYIN7SU0vrVax8EFoTOCnLpL3IErTn89vvWwgxe3AugMFR13JNrIas");'>
+                            </div>
+                            <div class="flex-grow">
+                                <p class="font-semibold text-slate-800 dark:text-slate-100 property-name">Property A</p>
+                                <p class="text-sm text-slate-500 dark:text-slate-400 property-address">123 Main St, Anytown</p>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <p class="text-base font-semibold text-slate-800 dark:text-slate-100">80%</p>
+                                <svg class="text-slate-400" fill="currentColor" height="16" viewBox="0 0 256 256"
+                                    width="16" xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M181.66,133.66l-80,80A8,8,0,0,1,88,208V48a8,8,0,0,1,13.66-5.66l80,80A8,8,0,0,1,181.66,133.66Z"
+                                        transform="rotate(-90 128 128)"></path>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="property-item cursor-pointer flex items-center gap-4 rounded-lg p-3 hover:bg-slate-100 dark:hover:bg-slate-800/50"
+                            data-name="Property B" 
+                            data-address="456 Oak Ave, Anytown" 
+                            data-image="https://lh3.googleusercontent.com/aida-public/AB6AXuCRb0g7PKA3jEe_-DqfeLlIfze39ssX1XOjqlZFbTJ_CwiH2lsNS89hq36cAjOxlDpm2riXwcm94I0bq2FsUGGgiS_BSKJgqR9Iv7JrxBFBDbqVUaUL0B6eNacY1nCaSmoNuCP6kGRsWaWaaDYJh_MS9px61Uxr-xeFbaKmi5rjL8F0nr1s3XQB_swZKfhTvue7b62EkSeM1MotdF1dh29DKquEscoZ_0xW0TxadDH1x8J_4iLswqkL52Dm4rV6N2zy5szsLHdqSIA"
+                            data-occupancy="90%">
+                            <div class="bg-center bg-no-repeat aspect-square bg-cover rounded-lg size-14"
+                                style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCRb0g7PKA3jEe_-DqfeLlIfze39ssX1XOjqlZFbTJ_CwiH2lsNS89hq36cAjOxlDpm2riXwcm94I0bq2FsUGGgiS_BSKJgqR9Iv7JrxBFBDbqVUaUL0B6eNacY1nCaSmoNuCP6kGRsWaWaaDYJh_MS9px61Uxr-xeFbaKmi5rjL8F0nr1s3XQB_swZKfhTvue7b62EkSeM1MotdF1dh29DKquEscoZ_0xW0TxadDH1x8J_4iLswqkL52Dm4rV6N2zy5szsLHdqSIA");'>
+                            </div>
+                            <div class="flex-grow">
+                                <p class="font-semibold text-slate-800 dark:text-slate-100 property-name">Property B</p>
+                                <p class="text-sm text-slate-500 dark:text-slate-400 property-address">456 Oak Ave, Anytown</p>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <p class="text-base font-semibold text-slate-800 dark:text-slate-100">90%</p>
+                                <svg class="text-slate-400" fill="currentColor" height="16" viewBox="0 0 256 256"
+                                    width="16" xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M181.66,133.66l-80,80A8,8,0,0,1,88,208V48a8,8,0,0,1,13.66-5.66l80,80A8,8,0,0,1,181.66,133.66Z"
+                                        transform="rotate(-90 128 128)"></path>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="property-item cursor-pointer flex items-center gap-4 rounded-lg p-3 hover:bg-slate-100 dark:hover:bg-slate-800/50"
+                            data-name="Property C" 
+                            data-address="789 Pine Ln, Anytown" 
+                            data-image="https://lh3.googleusercontent.com/aida-public/AB6AXuCRNaupnUN5ZTCYyVZoyuHJhXh0rxN643KKshw85MwnayYElkGp1-Z_oAX4YG_1Rxl-BXaCTlgt1LEhy9Z6PsSo7maflPZs6UWp_q67VzbhoBsVN03LcIWeHhpK7LSfDcySOIPKPqKKfHLBKNRbUh_-uZekrRvnU_UOSVafWHRhHRVANT-f3l7Z9qQOM-6VzkBHvWqqr8JMVOFlMV5oKO900kpqhOAtIiCyqpTgfHrj2mjYwNI6GX6LNV_NZfXZvFJAm6m0G11djac"
+                            data-occupancy="75%">
+                            <div class="bg-center bg-no-repeat aspect-square bg-cover rounded-lg size-14"
+                                style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCRNaupnUN5ZTCYyVZoyuHJhXh0rxN643KKshw85MwnayYElkGp1-Z_oAX4YG_1Rxl-BXaCTlgt1LEhy9Z6PsSo7maflPZs6UWp_q67VzbhoBsVN03LcIWeHhpK7LSfDcySOIPKPqKKfHLBKNRbUh_-uZekrRvnU_UOSVafWHRhHRVANT-f3l7Z9qQOM-6VzkBHvWqqr8JMVOFlMV5oKO900kpqhOAtIiCyqpTgfHrj2mjYwNI6GX6LNV_NZfXZvFJAm6m0G11djac");'>
+                            </div>
+                            <div class="flex-grow">
+                                <p class="font-semibold text-slate-800 dark:text-slate-100 property-name">Property C</p>
+                                <p class="text-sm text-slate-500 dark:text-slate-400 property-address">789 Pine Ln, Anytown</p>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <p class="text-base font-semibold text-slate-800 dark:text-slate-100">75%</p>
+                                <svg class="text-slate-400" fill="currentColor" height="16" viewBox="0 0 256 256"
+                                    width="16" xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M181.66,133.66l-80,80A8,8,0,0,1,88,208V48a8,8,0,0,1,13.66-5.66l80,80A8,8,0,0,1,181.66,133.66Z"
+                                        transform="rotate(-90 128 128)"></path>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </main>
+        </div>
+        <nav
+            class="sticky bottom-0 z-10 border-t border-slate-200 dark:border-slate-800 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-sm">
+            <div class="flex justify-around p-2">
+                <a class="flex flex-1 flex-col items-center justify-center gap-1 rounded-full p-2 text-slate-500 dark:text-slate-400 hover:text-primary"
+                    href="./dashshboad.html">
+                    <div class="p-2">
+                        <svg fill="currentColor" height="24" viewBox="0 0 256 256" width="24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M224,115.55V208a16,16,0,0,1-16,16H168a16,16,0,0,1-16-16V168a8,8,0,0,0-8-8H112a8,8,0,0,0-8,8v40a16,16,0,0,1-16,16H48a16,16,0,0,1-16-16V115.55a16,16,0,0,1,5.17-11.78l80-75.48.11-.11a16,16,0,0,1,21.53,0,1.14,1.14,0,0,0,.11.11l80,75.48A16,16,0,0,1,224,115.55Z">
+                            </path>
+                        </svg>
+                    </div>
+                    <p class="text-xs font-medium">Home</p>
+                </a>
+                <a class="flex flex-1 flex-col items-center justify-center gap-1 rounded-full p-2 text-primary"
+                    href="./properties.html">
+                    <div class="bg-primary/10 dark:bg-primary/20 rounded-full p-2">
+                        <svg fill="currentColor" height="24" viewBox="0 0 256 256" width="24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M240,208H224V96a16,16,0,0,0-16-16H144V32a16,16,0,0,0-24.88-13.32L39.12,72A16,16,0,0,0,32,85.34V208H16a8,8,0,0,0,0,16H240a8,8,0,0,0,0-16ZM208,96V208H144V96ZM48,85.34,128,32V208H48ZM112,112v16a8,8,0,0,1-16,0V112a8,8,0,1,1,16,0Zm-32,0v16a8,8,0,0,1-16,0V112a8,8,0,1,1,16,0Zm0,56v16a8,8,0,0,1-16,0V168a8,8,0,0,1,16,0Zm32,0v16a8,8,0,0,1-16,0V168a8,8,0,0,1,16,0Z">
+                            </path>
+                        </svg>
+                    </div>
+                    <p class="text-xs font-bold">Properties</p>
+                </a>
+                <a class="flex flex-1 flex-col items-center justify-center gap-1 rounded-full p-2 text-slate-500 dark:text-slate-400 hover:text-primary"
+                    href="./residents.html">
+                    <div class="p-2">
+                        <svg fill="currentColor" height="24" viewBox="0 0 256 256" width="24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M117.25,157.92a60,60,0,1,0-66.5,0A95.83,95.83,0,0,0,3.53,195.63a8,8,0,1,0,13.4,8.74,80,80,0,0,1,134.14,0,8,8,0,0,0,13.4-8.74A95.83,95.83,0,0,0,117.25,157.92ZM40,108a44,44,0,1,1,44,44A44.05,44.05,0,0,1,40,108Zm210.14,98.7a8,8,0,0,1-11.07-2.33A79.83,79.83,0,0,0,172,168a8,8,0,0,1,0-16,44,44,0,1,0-16.34-84.87,8,8,0,1,1-5.94-14.85,60,60,0,0,1,55.53,105.64,95.83,95.83,0,0,1,47.22,37.71A8,8,0,0,1,250.14,206.7Z">
+                            </path>
+                        </svg>
+                    </div>
+                    <p class="text-xs font-medium">Residents</p>
+                </a>
+                <a class="flex flex-1 flex-col items-center justify-center gap-1 rounded-full p-2 text-slate-500 dark:text-slate-400 hover:text-primary"
+                    href="./complaints.html">
+                    <div class="p-2">
+                        <svg fill="currentColor" height="24" viewBox="0 0 256 256" width="24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M240,120a48.05,48.05,0,0,0-48-48H152.2c-2.91-.17-53.62-3.74-101.91-44.24A16,16,0,0,0,24,40V200a16,16,0,0,0,26.29,12.25c37.77-31.68,77-40.76,93.71-43.3v31.72A16,16,0,0,0,151.12,214l11,7.33A16,16,0,0,0,186.5,212l11.77-44.36A48.07,48.07,0,0,0,240,120ZM40,199.93V40h0c42.81,35.91,86.63,45,104,47.24v65.48C126.65,155,82.84,164.07,40,199.93Zm131,8,0,.11-11-7.33V168h21.6ZM192,152H160V88h32a32,32,0,1,1,0,64Z">
+                            </path>
+                        </svg>
+                    </div>
+                    <p class="text-xs font-medium">Complaints</p>
+                </a>
+                <a class="flex flex-1 flex-col items-center justify-center gap-1 rounded-full p-2 text-slate-500 dark:text-slate-400 hover:text-primary"
+                    href="./settings.html">
+                    <div class="p-2">
+                        <svg fill="currentColor" height="24" viewBox="0 0 256 256" width="24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M128,80a48,48,0,1,0,48,48A48.05,48.05,0,0,0,128,80Zm0,80a32,32,0,1,1,32-32A32,32,0,0,1,128,160Zm88-29.84q.06-2.16,0-4.32l14.92-18.64a8,8,0,0,0,1.48-7.06,107.21,107.21,0,0,0-10.88-26.25,8,8,0,0,0-6-3.93l-23.72-2.64q-1.48-1.56-3-3L186,40.54a8,8,0,0,0-3.94-6,107.71,107.71,0,0,0-26.25-10.87,8,8,0,0,0-7.06,1.49L130.16,40Q128,40,125.84,40L107.2,25.11a8,8,0,0,0-7.06-1.48A107.6,107.6,0,0,0,73.89,34.51a8,8,0,0,0-3.93,6L67.32,64.27q-1.56,1.49-3,3L40.54,70a8,8,0,0,0-6,3.94,107.71,107.71,0,0,0-10.87,26.25,8,8,0,0,0,1.49,7.06L40,125.84Q40,128,40,130.16L25.11,148.8a8,8,0,0,0-1.48,7.06,107.21,107.21,0,0,0,10.88,26.25,8,8,0,0,0,6,3.93l23.72,2.64q1.49,1.56,3,3L70,215.46a8,8,0,0,0,3.94,6,107.71,107.71,0,0,0,26.25,10.87,8,8,0,0,0,7.06-1.49L125.84,216q2.16.06,4.32,0l18.64,14.92a8,8,0,0,0,7.06,1.48,107.21,107.21,0,0,0,26.25-10.88,8,8,0,0,0,3.93-6l2.64-23.72q1.56-1.48,3-3L215.46,186a8,8,0,0,0,6-3.94,107.71,107.71,0,0,0,10.87-26.25,8,8,0,0,0-1.49-7.06Zm-16.1-6.5a73.93,73.93,0,0,1,0,8.68,8,8,0,0,0,1.74,5.48l14.19,17.73a91.57,91.57,0,0,1-6.23,15L187,173.11a8,8,0,0,0-5.1,2.64,74.11,74.11,0,0,1-6.14,6.14,8,8,0,0,0-2.64,5.1l-2.51,22.58a91.32,91.32,0,0,1-15,6.23l-17.74-14.19a8,8,0,0,0-5-1.75h-.48a73.93,73.93,0,0,1-8.68,0,8,8,0,0,0-5.48,1.74L100.45,215.8a91.57,91.57,0,0,1-15-6.23L82.89,187a8,8,0,0,0-2.64-5.1,74.11,74.11,0,0,1-6.14-6.14,8,8,0,0,0-5.1-2.64L46.43,170.6a91.32,91.32,0,0,1-6.23-15l14.19-17.74a8,8,0,0,0,1.74-5.48,73.93,73.93,0,0,1,0-8.68,8,8,0,0,0-1.74-5.48L40.2,100.45a91.57,91.57,0,0,1,6.23-15L69,82.89a8,8,0,0,0,5.1-2.64,74.11,74.11,0,0,1,6.14-6.14A8,8,0,0,0,82.89,69L85.4,46.43a91.32,91.32,0,0,1,15-6.23l17.74,14.19a8,8,0,0,0,5.48,1.74,73.93,73.93,0,0,1,8.68,0,8,8,0,0,0,5.48-1.74L155.55,40.2a91.57,91.57,0,0,1,15,6.23L173.11,69a8,8,0,0,0,2.64,5.1,74.11,74.11,0,0,1,6.14,6.14,8,8,0,0,0,5.1,2.64l22.58,2.51a91.32,91.32,0,0,1,6.23,15l-14.19,17.74A8,8,0,0,0,199.87,123.66Z">
+                            </path>
+                        </svg>
+                    </div>
+                    <p class="text-xs font-medium">Settings</p>
+                </a>
+            </div>
+        </nav>
+    </div>
+
+    <!-- Add/Edit Property Modal -->
+    <div id="propertyFormModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/60 backdrop-blur-sm p-4">
+        <div class="bg-background-light dark:bg-slate-900 rounded-2xl shadow-2xl w-full max-w-md">
+            <div class="flex items-center justify-between p-4 border-b border-slate-200 dark:border-slate-800">
+                <h3 id="modalTitle" class="text-lg font-bold text-slate-900 dark:text-white">Add New Property</h3>
+                <button id="closeFormModalBtn" class="text-slate-500 dark:text-slate-400 hover:text-primary">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 256 256" fill="currentColor"><path d="M208.49,191.51a12,12,0,0,1-17,17L128,145,64.49,208.49a12,12,0,0,1-17-17L111,128,47.51,64.49a12,12,0,0,1,17-17L128,111l63.51-63.52a12,12,0,0,1,17,17L145,128Z"></path></svg>
+                </button>
+            </div>
+            <form id="propertyForm" class="p-6 space-y-4">
+                <div>
+                    <label for="propertyName" class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Property Name</label>
+                    <input type="text" id="propertyName" name="propertyName" required class="form-input w-full rounded-lg border-0 bg-slate-100 dark:bg-slate-800/50 text-slate-900 dark:text-slate-100 focus:ring-2 focus:ring-primary h-12 px-4">
+                </div>
+                <div>
+                    <label for="propertyAddress" class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Address</label>
+                    <input type="text" id="propertyAddress" name="propertyAddress" required class="form-input w-full rounded-lg border-0 bg-slate-100 dark:bg-slate-800/50 text-slate-900 dark:text-slate-100 focus:ring-2 focus:ring-primary h-12 px-4">
+                </div>
+                <div>
+                    <label for="propertyImage" class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Image URL</label>
+                    <input type="url" id="propertyImage" name="propertyImage" required class="form-input w-full rounded-lg border-0 bg-slate-100 dark:bg-slate-800/50 text-slate-900 dark:text-slate-100 focus:ring-2 focus:ring-primary h-12 px-4" placeholder="Enter image URL or upload">
+                    <div class="mt-2 text-sm">
+                        <label for="propertyImageFile" class="cursor-pointer text-primary hover:underline">Upload from gallery</label>
+                        <input type="file" id="propertyImageFile" name="propertyImageFile" accept="image/*" class="hidden">
+                        <span class="text-slate-400 dark:text-slate-500 mx-1">or</span>
+                        <label for="propertyImageCamera" class="cursor-pointer text-primary hover:underline">Take a photo</label>
+                        <input type="file" id="propertyImageCamera" name="propertyImageCamera" accept="image/*" capture="environment" class="hidden">
+                    </div>
+                </div>
+                <div class="flex justify-end pt-4">
+                    <button type="submit" class="w-full bg-primary text-white font-bold py-3 px-6 rounded-lg shadow-lg shadow-primary/30 hover:bg-opacity-90 transition duration-300">
+                        Save Property
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Add Property FAB -->
+    <button id="addPropertyBtn" class="fixed bottom-24 right-6 bg-primary text-white rounded-full p-4 shadow-lg hover:bg-primary/90 transition-transform hover:scale-105">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 256 256" fill="currentColor"><path d="M224,128a8,8,0,0,1-8,8H136v80a8,8,0,0,1-16,0V136H40a8,8,0,0,1,0-16h80V40a8,8,0,0,1,16,0v80h80A8,8,0,0,1,224,128Z"></path></svg>
+    </button>
+
+    <script>
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        const htmlEl = document.documentElement;
+
+        // Function to apply the theme
+        const applyTheme = (theme) => {
+            if (theme === 'dark') {
+                htmlEl.classList.add('dark');
+            } else {
+                htmlEl.classList.remove('dark');
+            }
+        };
+
+        // Check for saved theme in localStorage and apply it on page load
+        const savedTheme = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        applyTheme(savedTheme);
+
+        // Add event listener to the toggle button
+        darkModeToggle.addEventListener('click', () => {
+            const newTheme = htmlEl.classList.contains('dark') ? 'light' : 'dark';
+            localStorage.setItem('theme', newTheme);
+            applyTheme(newTheme);
+        });
+
+        // Add/Edit Property Modal Logic
+        const propertyFormModal = document.getElementById('propertyFormModal');
+        const closeFormModalBtn = document.getElementById('closeFormModalBtn');
+        const addPropertyBtn = document.getElementById('addPropertyBtn');
+        const propertyForm = document.getElementById('propertyForm');
+        const modalTitle = document.getElementById('modalTitle');
+        const propertyImageFileInput = document.getElementById('propertyImageFile');
+        const propertyImageCameraInput = document.getElementById('propertyImageCamera');
+        const propertyList = document.getElementById('property-list');
+        let editingItem = null;
+
+        const openModalForNew = () => {
+            editingItem = null;
+            modalTitle.textContent = 'Add New Property';
+            propertyForm.reset();
+            propertyImageCameraInput.value = '';
+            propertyImageFileInput.value = '';
+            propertyFormModal.classList.remove('hidden');
+            propertyFormModal.classList.add('flex');
+        };
+
+        const openModalForEdit = (item) => {
+            editingItem = item;
+            modalTitle.textContent = 'Edit Property';
+            propertyForm.propertyName.value = item.dataset.name;
+            propertyForm.propertyAddress.value = item.dataset.address;
+            propertyForm.propertyImage.value = item.dataset.image;
+            propertyImageCameraInput.value = '';
+            propertyImageFileInput.value = '';
+            propertyFormModal.classList.remove('hidden');
+            propertyFormModal.classList.add('flex');
+        };
+
+        const closeModal = () => {
+            propertyFormModal.classList.add('hidden');
+            propertyFormModal.classList.remove('flex');
+        };
+
+        addPropertyBtn.addEventListener('click', openModalForNew);
+        closeFormModalBtn.addEventListener('click', closeModal);
+        propertyFormModal.addEventListener('click', (e) => {
+            if (e.target === propertyFormModal) {
+                closeModal();
+            }
+        });
+
+        document.querySelectorAll('.property-item').forEach(item => {
+            item.addEventListener('click', () => openModalForEdit(item));
+        });
+
+        const handleFileSelect = (e) => {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = (event) => {
+                    propertyForm.propertyImage.value = event.target.result;
+                };
+                reader.readAsDataURL(file);
+            }
+        };
+
+        propertyImageFileInput.addEventListener('change', handleFileSelect);
+        propertyImageCameraInput.addEventListener('change', handleFileSelect);
+
+        propertyForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const name = propertyForm.propertyName.value;
+            const address = propertyForm.propertyAddress.value;
+            const image = propertyForm.propertyImage.value; // This will now contain URL or base64 data
+
+            if (editingItem) {
+                // Update existing item
+                editingItem.dataset.name = name;
+                editingItem.dataset.address = address;
+                editingItem.dataset.image = image;
+                editingItem.querySelector('.property-name').textContent = name;
+                editingItem.querySelector('.property-address').textContent = address;
+                editingItem.querySelector('.bg-cover').style.backgroundImage = `url('${image}')`;
+            } else {
+                // Add new item
+                const newItemHTML = `
+                    <div class="property-item cursor-pointer flex items-center gap-4 rounded-lg p-3 hover:bg-slate-100 dark:hover:bg-slate-800/50" 
+                        data-name="${name}" data-address="${address}" data-image="${image}" data-occupancy="0%">
+                        <div class="bg-center bg-no-repeat aspect-square bg-cover rounded-lg size-14" style='background-image: url("${image}");'></div>
+                        <div class="flex-grow">
+                            <p class="font-semibold text-slate-800 dark:text-slate-100 property-name">${name}</p>
+                            <p class="text-sm text-slate-500 dark:text-slate-400 property-address">${address}</p>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <p class="text-base font-semibold text-slate-800 dark:text-slate-100">0%</p>
+                            <svg class="text-slate-400" fill="currentColor" height="16" viewBox="0 0 256 256" width="16" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M181.66,133.66l-80,80A8,8,0,0,1,88,208V48a8,8,0,0,1,13.66-5.66l80,80A8,8,0,0,1,181.66,133.66Z" transform="rotate(-90 128 128)"></path>
+                            </svg>
+                        </div>
+                    </div>
+                `;
+                const newItem = document.createElement('div');
+                newItem.innerHTML = newItemHTML.trim();
+                const newItemElement = newItem.firstChild;
+                propertyList.appendChild(newItemElement);
+                newItemElement.addEventListener('click', () => openModalForEdit(newItemElement));
+            }
+
+            closeModal();
+        });
+    </script>
+</body>
+
+</html>

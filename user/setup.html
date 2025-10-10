@@ -28,7 +28,7 @@
                     colors: {
                         primary: "#13a4ec",
                         "background-light": "#f6f7f8",
-                        "background-dark": "#101c22",
+                        "background-dark": "#000000",
                     },
                     fontFamily: {
                         display: ["Manrope"],
@@ -162,6 +162,16 @@
             showSlide(currentSlide + 1);
         }, 5000); // Change image every 5 seconds
         showSlide(0); // Initialize first slide
+    </script>
+    <script>
+        // Apply theme from local storage or system preference
+        const htmlEl = document.documentElement;
+        const savedTheme = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        if (savedTheme === 'dark') {
+            htmlEl.classList.add('dark');
+        } else {
+            htmlEl.classList.remove('dark');
+        }
     </script>
 
 </body>
