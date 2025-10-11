@@ -72,7 +72,7 @@
                 </div>
                 <section>
                     <div id="property-list" class="space-y-2">
-                        <div class="property-item cursor-pointer flex items-center gap-4 rounded-lg p-3 hover:bg-slate-100 dark:hover:bg-slate-800/50" 
+                        <div class="property-item-container group relative flex items-center gap-4 rounded-lg p-3 hover:bg-slate-100 dark:hover:bg-slate-800/50" 
                             data-name="Property A" 
                             data-address="123 Main St, Anytown" 
                             data-image="https://lh3.googleusercontent.com/aida-public/AB6AXuBxRGvQxbXHfcJJjgM9c8p6fF1G2sltpT0YQaT7rsEuljtBMZ4bgS86TpD-zlfwYKivL8S8HtiibULzAIKocPlQKND5CeQUwa8icbS7QDgRRpIm2zR_vF02LFc_W1lTf_fCuGGmhe8nkT2cG3Ip1vNmiD5fyI9s5E8nDmM7tBayEsJ9-lWuvgAfef8MASSDond3fYdud4K4lXLZfRKqpKT4mYYIN7SU0vrVax8EFoTOCnLpL3IErTn89vvWwgxe3AugMFR13JNrIas"
@@ -83,24 +83,23 @@
                             data-rooms-1="5"
                             data-rooms-2="10"
                             data-rooms-3="15">
-                            <div class="bg-center bg-no-repeat aspect-square bg-cover rounded-lg size-14"
-                                style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBxRGvQxbXHfcJJjgM9c8p6fF1G2sltpT0YQaT7rsEuljtBMZ4bgS86TpD-zlfwYKivL8S8HtiibULzAIKocPlQKND5CeQUwa8icbS7QDgRRpIm2zR_vF02LFc_W1lTf_fCuGGmhe8nkT2cG3Ip1vNmiD5fyI9s5E8nDmM7tBayEsJ9-lWuvgAfef8MASSDond3fYdud4K4lXLZfRKqpKT4mYYIN7SU0vrVax8EFoTOCnLpL3IErTn89vvWwgxe3AugMFR13JNrIas");'>
-                            </div>
-                            <div class="flex-grow">
-                                <p class="font-semibold text-slate-800 dark:text-slate-100 property-name">Property A</p>
-                                <p class="text-sm text-slate-500 dark:text-slate-400 property-address">123 Main St, Anytown</p>
-                            </div>
-                            <div class="flex items-center gap-2">
-                                <p class="text-base font-semibold text-slate-800 dark:text-slate-100">80%</p>
-                                <svg class="text-slate-400" fill="currentColor" height="16" viewBox="0 0 256 256"
-                                    width="16" xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M181.66,133.66l-80,80A8,8,0,0,1,88,208V48a8,8,0,0,1,13.66-5.66l80,80A8,8,0,0,1,181.66,133.66Z"
-                                        transform="rotate(-90 128 128)"></path>
-                                </svg>
-                            </div>
+                            <a href="#" class="property-link flex-grow flex items-center gap-4">
+                                <div class="bg-center bg-no-repeat aspect-square bg-cover rounded-lg size-14"
+                                    style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBxRGvQxbXHfcJJjgM9c8p6fF1G2sltpT0YQaT7rsEuljtBMZ4bgS86TpD-zlfwYKivL8S8HtiibULzAIKocPlQKND5CeQUwa8icbS7QDgRRpIm2zR_vF02LFc_W1lTf_fCuGGmhe8nkT2cG3Ip1vNmiD5fyI9s5E8nDmM7tBayEsJ9-lWuvgAfef8MASSDond3fYdud4K4lXLZfRKqpKT4mYYIN7SU0vrVax8EFoTOCnLpL3IErTn89vvWwgxe3AugMFR13JNrIas");'>
+                                </div>
+                                <div class="flex-grow">
+                                    <p class="font-semibold text-slate-800 dark:text-slate-100 property-name">Property A</p>
+                                    <p class="text-sm text-slate-500 dark:text-slate-400 property-address">123 Main St, Anytown</p>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <p class="text-base font-semibold text-slate-800 dark:text-slate-100">80%</p>
+                                </div>
+                            </a>
+                            <button class="edit-property-btn p-2 rounded-full hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-500 dark:text-slate-400">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 256 256" fill="currentColor"><path d="M227.31,73.37,182.63,28.69a16,16,0,0,0-22.62,0L36.69,152A15.86,15.86,0,0,0,32,163.31V208a16,16,0,0,0,16,16H92.69A15.86,15.86,0,0,0,104,219.31L227.31,96a16,16,0,0,0,0-22.62ZM92.69,208H48V163.31l88-88L180.69,120ZM192,108.69,147.31,64,172,39.31,216.69,84Z"></path></svg>
+                            </button>
                         </div>
-                        <div class="property-item cursor-pointer flex items-center gap-4 rounded-lg p-3 hover:bg-slate-100 dark:hover:bg-slate-800/50"
+                        <div class="property-item-container group relative flex items-center gap-4 rounded-lg p-3 hover:bg-slate-100 dark:hover:bg-slate-800/50"
                             data-name="Property B" 
                             data-address="456 Oak Ave, Anytown" 
                             data-image="https://lh3.googleusercontent.com/aida-public/AB6AXuCRb0g7PKA3jEe_-DqfeLlIfze39ssX1XOjqlZFbTJ_CwiH2lsNS89hq36cAjOxlDpm2riXwcm94I0bq2FsUGGgiS_BSKJgqR9Iv7JrxBFBDbqVUaUL0B6eNacY1nCaSmoNuCP6kGRsWaWaaDYJh_MS9px61Uxr-xeFbaKmi5rjL8F0nr1s3XQB_swZKfhTvue7b62EkSeM1MotdF1dh29DKquEscoZ_0xW0TxadDH1x8J_4iLswqkL52Dm4rV6N2zy5szsLHdqSIA"
@@ -111,24 +110,23 @@
                             data-rooms-1="4"
                             data-rooms-2="8"
                             data-rooms-3="12">
-                            <div class="bg-center bg-no-repeat aspect-square bg-cover rounded-lg size-14"
-                                style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCRb0g7PKA3jEe_-DqfeLlIfze39ssX1XOjqlZFbTJ_CwiH2lsNS89hq36cAjOxlDpm2riXwcm94I0bq2FsUGGgiS_BSKJgqR9Iv7JrxBFBDbqVUaUL0B6eNacY1nCaSmoNuCP6kGRsWaWaaDYJh_MS9px61Uxr-xeFbaKmi5rjL8F0nr1s3XQB_swZKfhTvue7b62EkSeM1MotdF1dh29DKquEscoZ_0xW0TxadDH1x8J_4iLswqkL52Dm4rV6N2zy5szsLHdqSIA");'>
-                            </div>
-                            <div class="flex-grow">
-                                <p class="font-semibold text-slate-800 dark:text-slate-100 property-name">Property B</p>
-                                <p class="text-sm text-slate-500 dark:text-slate-400 property-address">456 Oak Ave, Anytown</p>
-                            </div>
-                            <div class="flex items-center gap-2">
-                                <p class="text-base font-semibold text-slate-800 dark:text-slate-100">90%</p>
-                                <svg class="text-slate-400" fill="currentColor" height="16" viewBox="0 0 256 256"
-                                    width="16" xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M181.66,133.66l-80,80A8,8,0,0,1,88,208V48a8,8,0,0,1,13.66-5.66l80,80A8,8,0,0,1,181.66,133.66Z"
-                                        transform="rotate(-90 128 128)"></path>
-                                </svg>
-                            </div>
+                            <a href="#" class="property-link flex-grow flex items-center gap-4">
+                                <div class="bg-center bg-no-repeat aspect-square bg-cover rounded-lg size-14"
+                                    style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCRb0g7PKA3jEe_-DqfeLlIfze39ssX1XOjqlZFbTJ_CwiH2lsNS89hq36cAjOxlDpm2riXwcm94I0bq2FsUGGgiS_BSKJgqR9Iv7JrxBFBDbqVUaUL0B6eNacY1nCaSmoNuCP6kGRsWaWaaDYJh_MS9px61Uxr-xeFbaKmi5rjL8F0nr1s3XQB_swZKfhTvue7b62EkSeM1MotdF1dh29DKquEscoZ_0xW0TxadDH1x8J_4iLswqkL52Dm4rV6N2zy5szsLHdqSIA");'>
+                                </div>
+                                <div class="flex-grow">
+                                    <p class="font-semibold text-slate-800 dark:text-slate-100 property-name">Property B</p>
+                                    <p class="text-sm text-slate-500 dark:text-slate-400 property-address">456 Oak Ave, Anytown</p>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <p class="text-base font-semibold text-slate-800 dark:text-slate-100">90%</p>
+                                </div>
+                            </a>
+                             <button class="edit-property-btn p-2 rounded-full hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-500 dark:text-slate-400">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 256 256" fill="currentColor"><path d="M227.31,73.37,182.63,28.69a16,16,0,0,0-22.62,0L36.69,152A15.86,15.86,0,0,0,32,163.31V208a16,16,0,0,0,16,16H92.69A15.86,15.86,0,0,0,104,219.31L227.31,96a16,16,0,0,0,0-22.62ZM92.69,208H48V163.31l88-88L180.69,120ZM192,108.69,147.31,64,172,39.31,216.69,84Z"></path></svg>
+                            </button>
                         </div>
-                        <div class="property-item cursor-pointer flex items-center gap-4 rounded-lg p-3 hover:bg-slate-100 dark:hover:bg-slate-800/50"
+                        <div class="property-item-container group relative flex items-center gap-4 rounded-lg p-3 hover:bg-slate-100 dark:hover:bg-slate-800/50"
                             data-name="Property C" 
                             data-address="789 Pine Ln, Anytown" 
                             data-image="https://lh3.googleusercontent.com/aida-public/AB6AXuCRNaupnUN5ZTCYyVZoyuHJhXh0rxN643KKshw85MwnayYElkGp1-Z_oAX4YG_1Rxl-BXaCTlgt1LEhy9Z6PsSo7maflPZs6UWp_q67VzbhoBsVN03LcIWeHhpK7LSfDcySOIPKPqKKfHLBKNRbUh_-uZekrRvnU_UOSVafWHRhHRVANT-f3l7Z9qQOM-6VzkBHvWqqr8JMVOFlMV5oKO900kpqhOAtIiCyqpTgfHrj2mjYwNI6GX6LNV_NZfXZvFJAm6m0G11djac"
@@ -139,22 +137,21 @@
                             data-rooms-1="6"
                             data-rooms-2="10"
                             data-rooms-3="10">
-                            <div class="bg-center bg-no-repeat aspect-square bg-cover rounded-lg size-14"
-                                style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCRNaupnUN5ZTCYyVZoyuHJhXh0rxN643KKshw85MwnayYElkGp1-Z_oAX4YG_1Rxl-BXaCTlgt1LEhy9Z6PsSo7maflPZs6UWp_q67VzbhoBsVN03LcIWeHhpK7LSfDcySOIPKPqKKfHLBKNRbUh_-uZekrRvnU_UOSVafWHRhHRVANT-f3l7Z9qQOM-6VzkBHvWqqr8JMVOFlMV5oKO900kpqhOAtIiCyqpTgfHrj2mjYwNI6GX6LNV_NZfXZvFJAm6m0G11djac");'>
-                            </div>
-                            <div class="flex-grow">
-                                <p class="font-semibold text-slate-800 dark:text-slate-100 property-name">Property C</p>
-                                <p class="text-sm text-slate-500 dark:text-slate-400 property-address">789 Pine Ln, Anytown</p>
-                            </div>
-                            <div class="flex items-center gap-2">
-                                <p class="text-base font-semibold text-slate-800 dark:text-slate-100">75%</p>
-                                <svg class="text-slate-400" fill="currentColor" height="16" viewBox="0 0 256 256"
-                                    width="16" xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M181.66,133.66l-80,80A8,8,0,0,1,88,208V48a8,8,0,0,1,13.66-5.66l80,80A8,8,0,0,1,181.66,133.66Z"
-                                        transform="rotate(-90 128 128)"></path>
-                                </svg>
-                            </div>
+                            <a href="#" class="property-link flex-grow flex items-center gap-4">
+                                <div class="bg-center bg-no-repeat aspect-square bg-cover rounded-lg size-14"
+                                    style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCRNaupnUN5ZTCYyVZoyuHJhXh0rxN643KKshw85MwnayYElkGp1-Z_oAX4YG_1Rxl-BXaCTlgt1LEhy9Z6PsSo7maflPZs6UWp_q67VzbhoBsVN03LcIWeHhpK7LSfDcySOIPKPqKKfHLBKNRbUh_-uZekrRvnU_UOSVafWHRhHRVANT-f3l7Z9qQOM-6VzkBHvWqqr8JMVOFlMV5oKO900kpqhOAtIiCyqpTgfHrj2mjYwNI6GX6LNV_NZfXZvFJAm6m0G11djac");'>
+                                </div>
+                                <div class="flex-grow">
+                                    <p class="font-semibold text-slate-800 dark:text-slate-100 property-name">Property C</p>
+                                    <p class="text-sm text-slate-500 dark:text-slate-400 property-address">789 Pine Ln, Anytown</p>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <p class="text-base font-semibold text-slate-800 dark:text-slate-100">75%</p>
+                                </div>
+                            </a>
+                             <button class="edit-property-btn p-2 rounded-full hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-500 dark:text-slate-400">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 256 256" fill="currentColor"><path d="M227.31,73.37,182.63,28.69a16,16,0,0,0-22.62,0L36.69,152A15.86,15.86,0,0,0,32,163.31V208a16,16,0,0,0,16,16H92.69A15.86,15.86,0,0,0,104,219.31L227.31,96a16,16,0,0,0,0-22.62ZM92.69,208H48V163.31l88-88L180.69,120ZM192,108.69,147.31,64,172,39.31,216.69,84Z"></path></svg>
+                            </button>
                         </div>
                     </div>
                 </section>
@@ -380,9 +377,20 @@
             }
         });
 
-        document.querySelectorAll('.property-item').forEach(item => {
-            item.addEventListener('click', () => openModalForEdit(item));
-        });
+        function setupEventListeners(container) {
+            container.querySelectorAll('.property-link').forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const item = link.closest('.property-item-container');
+                    const propertyName = item.dataset.name;
+                    window.location.href = `expenses.html?property=${encodeURIComponent(propertyName)}`;
+                });
+            });
+            container.querySelectorAll('.edit-property-btn').forEach(button => {
+                button.addEventListener('click', () => openModalForEdit(button.closest('.property-item-container')));
+            });
+        }
+        setupEventListeners(propertyList);
 
         const handleFileSelect = (e) => {
             const file = e.target.files[0];
@@ -427,26 +435,28 @@
             } else {
                 // Add new item
                 const newItemHTML = `
-                    <div class="property-item cursor-pointer flex items-center gap-4 rounded-lg p-3 hover:bg-slate-100 dark:hover:bg-slate-800/50" 
+                    <div class="property-item-container group relative flex items-center gap-4 rounded-lg p-3 hover:bg-slate-100 dark:hover:bg-slate-800/50" 
                         data-name="${name}" data-address="${address}" data-image="${image}" data-occupancy="0%" data-price-1="${price1}" data-price-2="${price2}" data-price-3="${price3}" data-rooms-1="${rooms1}" data-rooms-2="${rooms2}" data-rooms-3="${rooms3}">
-                        <div class="bg-center bg-no-repeat aspect-square bg-cover rounded-lg size-14" style='background-image: url("${image}");'></div>
-                        <div class="flex-grow">
-                            <p class="font-semibold text-slate-800 dark:text-slate-100 property-name">${name}</p>
-                            <p class="text-sm text-slate-500 dark:text-slate-400 property-address">${address}</p>
-                        </div>
-                        <div class="flex items-center gap-2">
-                            <p class="text-base font-semibold text-slate-800 dark:text-slate-100">0%</p>
-                            <svg class="text-slate-400" fill="currentColor" height="16" viewBox="0 0 256 256" width="16" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M181.66,133.66l-80,80A8,8,0,0,1,88,208V48a8,8,0,0,1,13.66-5.66l80,80A8,8,0,0,1,181.66,133.66Z" transform="rotate(-90 128 128)"></path>
-                            </svg>
-                        </div>
+                        <a href="#" class="property-link flex-grow flex items-center gap-4">
+                            <div class="bg-center bg-no-repeat aspect-square bg-cover rounded-lg size-14" style='background-image: url("${image}");'></div>
+                            <div class="flex-grow">
+                                <p class="font-semibold text-slate-800 dark:text-slate-100 property-name">${name}</p>
+                                <p class="text-sm text-slate-500 dark:text-slate-400 property-address">${address}</p>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <p class="text-base font-semibold text-slate-800 dark:text-slate-100">0%</p>
+                            </div>
+                        </a>
+                        <button class="edit-property-btn p-2 rounded-full hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-500 dark:text-slate-400">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 256 256" fill="currentColor"><path d="M227.31,73.37,182.63,28.69a16,16,0,0,0-22.62,0L36.69,152A15.86,15.86,0,0,0,32,163.31V208a16,16,0,0,0,16,16H92.69A15.86,15.86,0,0,0,104,219.31L227.31,96a16,16,0,0,0,0-22.62ZM92.69,208H48V163.31l88-88L180.69,120ZM192,108.69,147.31,64,172,39.31,216.69,84Z"></path></svg>
+                        </button>
                     </div>
                 `;
-                const newItem = document.createElement('div');
-                newItem.innerHTML = newItemHTML.trim();
-                const newItemElement = newItem.firstChild;
+                const newItemContainer = document.createElement('div');
+                newItemContainer.innerHTML = newItemHTML;
+                const newItemElement = newItemContainer.firstElementChild;
                 propertyList.appendChild(newItemElement);
-                newItemElement.addEventListener('click', () => openModalForEdit(newItemElement));
+                setupEventListeners(newItemElement);
             }
 
             closeModal();

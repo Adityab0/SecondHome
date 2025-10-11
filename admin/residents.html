@@ -86,8 +86,9 @@
                             <div class="resident-item cursor-pointer flex items-center gap-4 rounded-lg p-3 hover:bg-slate-100 dark:hover:bg-slate-800/50 bg-red-500/5 dark:bg-red-500/10"
                                 data-name="John Doe" data-property="Property A" data-room="101"
                                 data-phone="+91 98765 43210"
-                                data-avatar="https://i.pravatar.cc/150?u=a042581f4e29026704d" 
-                                data-rent-status="overdue"
+                                data-avatar="https://i.pravatar.cc/150?u=a042581f4e29026704d"
+                                data-rent-status="due"
+                                data-paid-amount="0"
                                 data-rent-amount="12500" 
                                 data-sharing="2"
                                 data-father-name="Richard Doe" data-mother-name="Jane Doe"
@@ -106,7 +107,7 @@
                                             Overdue</span>
                                     </p>
                                 </div>
-                                <div class="text-right shrink-0">
+                                <div class="text-right shrink-0 rent-display">
                                     <p class="font-bold text-lg text-red-500">₹12,500</p>
                                 </div>
                             </div>
@@ -118,8 +119,9 @@
                             <div class="resident-item cursor-pointer flex items-center gap-4 rounded-lg p-3 hover:bg-slate-100 dark:hover:bg-slate-800/50"
                                 data-name="Jane Smith" data-property="Property B" data-room="205"
                                 data-phone="+91 98765 12345"
-                                data-avatar="https://i.pravatar.cc/150?u=a042581f4e29026705d" 
-                                data-rent-status="paid"
+                                data-avatar="https://i.pravatar.cc/150?u=a042581f4e29026705d"
+                                data-rent-status="full paid"
+                                data-paid-amount="11000"
                                 data-rent-amount="11000" 
                                 data-sharing="3"
                                 data-father-name="Robert Smith" data-mother-name="Mary Smith"
@@ -135,7 +137,7 @@
                                     <p class="text-sm text-slate-500 dark:text-slate-400 resident-info">Room 205 (3
                                         Sharing)</p>
                                 </div>
-                                <div class="text-right shrink-0">
+                                <div class="text-right shrink-0 rent-display">
                                     <p class="font-bold text-lg text-slate-800 dark:text-slate-200">₹11,000</p>
                                 </div>
                             </div>
@@ -251,6 +253,21 @@
                         <div>
                             <label for="residentPhone" class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Phone</label>
                             <input type="tel" id="residentPhone" name="residentPhone" required class="form-input w-full rounded-lg border-0 bg-slate-100 dark:bg-slate-800/50 text-slate-900 dark:text-slate-100 focus:ring-2 focus:ring-primary h-12 px-4">
+                        </div>
+                        <div class="grid grid-cols-2 gap-4">
+                             <div>
+                                <label for="rentStatus" class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Rent Status</label>
+                                <select id="rentStatus" name="rentStatus" class="form-select w-full rounded-lg border-0 bg-slate-100 dark:bg-slate-800/50 text-slate-900 dark:text-slate-100 focus:ring-2 focus:ring-primary h-12 px-4">
+                                    <option value="full paid">Full Paid</option>
+                                    <option value="partial">Partial</option>
+                                    <option value="unpaid">Unpaid</option>
+                                    <option value="due">Due</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="paidAmount" class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Paid Amount</label>
+                                <input type="number" id="paidAmount" name="paidAmount" placeholder="e.g. 10000" class="form-input w-full rounded-lg border-0 bg-slate-100 dark:bg-slate-800/50 text-slate-900 dark:text-slate-100 focus:ring-2 focus:ring-primary h-12 px-4">
+                            </div>
                         </div>
                         <div class="flex justify-end pt-4">
                             <button type="button" id="next-step-1" class="w-full bg-primary text-white font-bold py-3 px-6 rounded-lg shadow-lg shadow-primary/30 hover:bg-opacity-90 transition duration-300">Next</button>
@@ -391,6 +408,8 @@
             residentForm.residentPhone.value = item.dataset.phone || '';
             residentForm.residentSharing.value = item.dataset.sharing || '';
             residentForm.residentAvatar.value = item.dataset.avatar || '';
+            residentForm.rentStatus.value = item.dataset.rentStatus || 'due';
+            residentForm.paidAmount.value = item.dataset.paidAmount || '';
             residentForm.fatherName.value = item.dataset.fatherName || '';
             residentForm.motherName.value = item.dataset.motherName || '';
             residentForm.guardianContact.value = item.dataset.guardianContact || '';
@@ -466,6 +485,8 @@
                     const datasetKey = key.replace(/([A-Z])/g, '-$1').toLowerCase();
                     editingItem.dataset[datasetKey] = data[key];
                 });
+                editingItem.dataset.rentStatus = data.rentStatus;
+                editingItem.dataset.paidAmount = data.paidAmount;
                 editingItem.dataset.sharing = data.residentSharing; // ensure sharing is just the number
 
                 // Update UI
@@ -476,6 +497,30 @@
                 if(rentStatusSpan) infoEl.appendChild(rentStatusSpan);
 
                 editingItem.querySelector('.resident-avatar').src = data.residentAvatar;
+
+                // Update rent status badge
+                const badge = editingItem.querySelector('.rent-status-badge');
+                const rentDisplayP = editingItem.querySelector('.rent-display p');
+                badge.textContent = '';
+                badge.className = 'rent-status-badge ml-2 inline-block px-2 py-0.5 text-xs font-semibold rounded-full';
+                rentDisplayP.className = 'font-bold text-lg';
+                editingItem.classList.remove('bg-red-500/5', 'dark:bg-red-500/10', 'bg-yellow-500/5', 'dark:bg-yellow-500/10');
+
+                if (data.rentStatus === 'due' || data.rentStatus === 'unpaid') {
+                    badge.textContent = 'Overdue';
+                    badge.classList.add('text-red-700', 'bg-red-100', 'dark:text-red-200', 'dark:bg-red-500/30');
+                    rentDisplayP.classList.add('text-red-500');
+                    editingItem.classList.add('bg-red-500/5', 'dark:bg-red-500/10');
+                } else if (data.rentStatus === 'partial') {
+                    badge.textContent = 'Partial';
+                    badge.classList.add('text-yellow-700', 'bg-yellow-100', 'dark:text-yellow-200', 'dark:bg-yellow-500/30');
+                    rentDisplayP.classList.add('text-yellow-500');
+                    editingItem.classList.add('bg-yellow-500/5', 'dark:bg-yellow-500/10');
+                } else { // full paid
+                    badge.classList.add('hidden');
+                    rentDisplayP.classList.add('text-slate-800', 'dark:text-slate-200');
+                }
+
                 // Note: Logic to move item to a different property group if property name changes is not implemented.
             } else {
                 // Add new item
@@ -497,7 +542,9 @@
                 const newItemHTML = `
                     <div class="resident-item cursor-pointer flex items-center gap-4 rounded-lg p-3 hover:bg-slate-100 dark:hover:bg-slate-800/50" 
                         data-name="${data.residentName}" data-property="${data.residentProperty}" data-room="${data.residentRoom}" 
-                        data-phone="${data.residentPhone}" data-avatar="${data.residentAvatar}" data-rent-status="paid" 
+                        data-phone="${data.residentPhone}" data-avatar="${data.residentAvatar}" 
+                        data-rent-status="${data.rentStatus}" 
+                        data-paid-amount="${data.paidAmount}"
                         data-rent-amount="0" data-sharing="${data.residentSharing}"
                         data-father-name="${data.fatherName}" data-mother-name="${data.motherName}"
                         data-guardian-contact="${data.guardianContact}" data-permanent-address="${data.permanentAddress}"
@@ -509,8 +556,8 @@
                             <p class="font-semibold text-slate-800 dark:text-slate-100 resident-name">${data.residentName}</p>
                             <p class="text-sm text-slate-500 dark:text-slate-400 resident-info">Room ${data.residentRoom} (${sharingText})</p>
                         </div>
-                        <div class="text-right shrink-0">
-                            <p class="font-bold text-lg text-slate-800 dark:text-slate-200">₹0</p>
+                        <div class="text-right shrink-0 rent-display">
+                            <p class="font-bold text-lg text-slate-800 dark:text-slate-200">₹${new Intl.NumberFormat('en-IN').format(data.rentAmount || 0)}</p>
                         </div>
                     </div>
                 `;
