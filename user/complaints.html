@@ -151,6 +151,16 @@
                     <textarea id="complaintDescription" rows="4" placeholder="Please provide more details..."
                         class="form-textarea w-full bg-neutral-100 dark:bg-neutral-800 border-transparent rounded-lg focus:ring-primary focus:border-primary text-neutral-800 dark:text-white"></textarea>
                 </div>
+                <div>
+                    <label class="block text-sm font-medium text-neutral-700 dark:text-neutral-300 mb-1">Attach Image (Optional)</label>
+                    <div class="mt-2 text-sm">
+                        <label for="complaintImageFile" class="cursor-pointer text-primary hover:underline">Upload from gallery</label>
+                        <input type="file" id="complaintImageFile" accept="image/*" class="hidden">
+                        <span class="text-slate-400 dark:text-slate-500 mx-1">or</span>
+                        <label for="complaintImageCamera" class="cursor-pointer text-primary hover:underline">Take a photo</label>
+                        <input type="file" id="complaintImageCamera" accept="image/*" capture="environment" class="hidden">
+                    </div>
+                </div>
                 <div class="flex justify-end pt-2">
                     <button type="submit"
                         class="bg-primary text-white font-bold py-2 px-6 rounded-lg shadow-lg shadow-primary/30 hover:bg-opacity-90 transition duration-300">
